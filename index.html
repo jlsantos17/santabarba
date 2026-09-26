@@ -31,7 +31,7 @@
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ } }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:70px}
-html,body{height:100%}
+html,body{height:100%;max-width:100%;overflow-x:hidden}
 body{
   margin:0;
   background:var(--ivory);
@@ -81,7 +81,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;margin:0;letter-spacing
   border-bottom:1px solid var(--line-dark);
 }
 .header-row{display:flex;align-items:center;justify-content:space-between;height:76px;color:var(--ivory)}
-.wordmark{font-family:var(--font-brand);font-size:22px;letter-spacing:0.03em;display:flex;align-items:baseline;gap:9px}
+.wordmark{font-family:var(--font-brand);font-size:22px;letter-spacing:0.03em;display:flex;align-items:baseline;gap:9px;min-width:0;overflow-wrap:break-word;word-break:break-word}
 .est-badge{font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.06em;color:var(--champagne);opacity:0.85;font-weight:500}
 @media (max-width:520px){.est-badge{display:none}}
 .nav-links{display:flex;gap:34px;align-items:center}
@@ -97,12 +97,17 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;margin:0;letter-spacing
   .nav-links{display:none}
   .burger{display:inline-flex}
 }
+@media (max-width:430px){
+  .wordmark{font-size:18px}
+  .header-actions .btn-primary{display:none}
+}
 
 /* ---------- Hero ---------- */
 .hero{background:var(--ink);color:var(--ivory);padding:96px 0 84px;position:relative;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center}
+.hero-grid>*{min-width:0}
 .hero-since{font-size:13px;letter-spacing:0.05em;color:var(--champagne);opacity:0.9;margin:0 0 14px}
-.hero-name{font-family:var(--font-brand);font-size:clamp(48px,8.5vw,100px);line-height:0.9;letter-spacing:0.01em;margin:0 0 22px}
+.hero-name{font-family:var(--font-brand);font-size:clamp(30px,11vw,100px);line-height:0.95;letter-spacing:0.005em;margin:0 0 22px;min-width:0;max-width:100%;overflow-wrap:break-word;word-break:break-word}
 .hero-tag{font-size:18px;max-width:34ch;opacity:0.82;margin-bottom:38px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .hero-art{justify-self:end}
@@ -248,7 +253,7 @@ section{padding:88px 0}
 /* ---------- Footer ---------- */
 footer{background:var(--ink);color:var(--ivory);padding:56px 0 34px}
 .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--line-dark)}
-.footer-name{font-family:var(--font-brand);font-size:28px}
+.footer-name{font-family:var(--font-brand);font-size:28px;min-width:0;max-width:100%;overflow-wrap:break-word;word-break:break-word}
 .footer-cols{display:flex;gap:64px;flex-wrap:wrap}
 .footer-col a,.footer-col span{display:block;font-size:14px;opacity:0.75;margin-bottom:10px}
 .footer-col h4{font-size:12.5px;opacity:0.5;margin:0 0 14px;font-weight:600}
